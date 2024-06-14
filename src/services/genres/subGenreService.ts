@@ -1,3 +1,4 @@
+// src/services/subGenreService.ts
 import { ISubGenre } from '@/interfaces/genres/ISubGenre'
 
 const API_URL = '/api/'
@@ -11,13 +12,10 @@ export default {
     return fetch(API_URL + 'sub_genres/' + id + '/')
       .then(response => response.json())
   },
-  createSubGenre (subGenre: ISubGenre): Promise<ISubGenre> {
+  createSubGenre (subGenre: FormData): Promise<ISubGenre> { // Change ISubGenre to FormData
     return fetch(API_URL + 'sub_genres/', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(subGenre)
+      body: subGenre
     }).then(response => response.json())
   },
   updateSubGenre (id: number, subGenre: ISubGenre): Promise<ISubGenre> {

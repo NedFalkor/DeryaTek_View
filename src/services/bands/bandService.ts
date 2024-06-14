@@ -1,4 +1,6 @@
 import { IBand } from '@/interfaces/bands/IBand'
+import { IGenre } from '@/interfaces/genres/IGenre'
+import { IBandMember } from '@/interfaces/bands/IBandMember'
 
 const API_URL = '/api/'
 
@@ -33,5 +35,13 @@ export default {
     return fetch(API_URL + `bands/${id}/`, {
       method: 'DELETE'
     }).then(response => response.json())
+  },
+  getGenres (): Promise<IGenre[]> {
+    return fetch(API_URL + 'genres/')
+      .then(response => response.json())
+  },
+  getBandMembers (): Promise<IBandMember[]> {
+    return fetch(API_URL + 'band_members/')
+      .then(response => response.json())
   }
 }

@@ -5,4 +5,5 @@ export interface ICustomUser {
   isStaff: boolean;
   isSuperuser: boolean;
   password?: string;
+  token: string;
 }

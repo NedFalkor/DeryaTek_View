@@ -1,3 +1,4 @@
+// src/interfaces/gigs/IFestival.ts
 import { IVenue } from '@/interfaces/gigs/IVenue'
 import { IBand } from '@/interfaces/bands/IBand'
 import { IGig } from '@/interfaces/gigs/IGig'
@@ -7,9 +8,9 @@ export interface IFestival {
   festivalName: string;
   festivalStartDate: string; // ISO date string
   festivalEndDate: string; // ISO date string
-  venues: IVenue[];
-  bands: IBand[];
-  gig: IGig;
+  venues: number[]; // Array of venue IDs
+  bands: number[]; // Array of band IDs
+  gig: IGig[];
   festivalDescription?: string; // Optional
   festivalLink?: string; // Optional
   festivalTicketPrice?: number; // Optional

@@ -11,13 +11,10 @@ export default {
     return fetch(API_URL + 'styles/' + id + '/')
       .then(response => response.json())
   },
-  createStyle (style: IStyle): Promise<IStyle> {
+  createStyle (style: FormData): Promise<IStyle> { // Change IStyle to FormData
     return fetch(API_URL + 'styles/', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(style)
+      body: style // Remove Content-Type header for FormData
     }).then(response => response.json())
   },
   updateStyle (id: number, style: IStyle): Promise<IStyle> {
